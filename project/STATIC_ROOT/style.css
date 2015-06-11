@@ -1,0 +1,14 @@
+/*цвет таблицы*/
+body {background-color:#FFFFCC}
+table {
+  background-color: white;
+  }
+
+tbody tr:nth-child(2n) {
+    background: #f0f0f0; /* Цвет фона ячеек*/
+   } 
+   
+/*заголовок*/   
+thead th {
+  background-color: CCCCFF;
+}

@@ -1,0 +1,338 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Список</title>
+{% load staticfiles %}
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'jquery-1.11.2.min.js' %}"> </script>
+<script type="text/javascript" src="{% static 'jq.js' %}"> </script>
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<a href="#" class="scrollup">Наверх</a>
+<body>
+
+<div class="top-bar">
+
+	<section class="top-bar-section">
+		<ul class="right">
+			{% if username %}
+			<li class='enter'><a  href="/auth/logout/">Выйти ({{ username }})</a></li>
+			{% else %}
+			<li class='enter' ><a href="/auth/login/">Войти </a></li>
+			{% endif %}
+			</ul>
+			</section>
+</div>
+<div id="layer"><Label id="layerL">Телефонная книга</Label></div>
+
+
+<div id="allinf">
+<Label for='allnumb'>Количество телефонных номеров:</Label>
+<input id='allnumb' class='inf' value='' readonly></input>
+<Label for='orginfo'>Количество номеров для организации</Label>
+<select id='orginfo' onChange='enable();'>
+  <option>Выберите организацию...</option>
+  <option class='option' value='Точинвест'>Точинвест</option>
+  <option class='option' value='Точинвест цинк'>Точинвест цинк</option>
+  <option class='option' value='Русская кожа'>Русская кожа</option>
+  <option class='option' value='КожПромМебель'>КожПромМебель</option>
+  <option class='option' value='Туборус'>Туборус</option>
+  <option class='option' value='Сафьян'>Сафьян</option>
+  <option class='option' value='Руно'>Руно</option>
+</select>
+<input id='orgnumb' class='inf'  value='' readonly></input>
+<input type=button id='listoforg' value="показать"  onClick="showlist();" ></input>
+</div>
+
+
+
+<script language="javascript">
+	function enable(){
+     var selind = document.getElementById("orginfo").options.selectedIndex;
+     var txt= document.getElementById("orginfo").options[selind].text;
+	 var cnt = 0; 
+	 var list=document.getElementById("users").getElementsByClassName("org_name");
+    	 
+	for (var i=0; i< list.length; i++)
+	 { 	
+		var x=list[i].innerHTML;
+    	 if (x==txt) {
+		cnt++;
+		
+};};
+document.getElementById("orgnumb").value=cnt;
+
+ var listtr=document.getElementById("users").getElementsByClassName("userslist");
+ for (var t=0; t<= list.length; t++){
+	 var y=listtr[t];
+     y.style.display = '';
+     };
+ };
+</script>
+
+
+
+
+<script language="javascript">
+function showlist(){
+	
+     var selind = document.getElementById("orginfo").options.selectedIndex;
+     var txt= document.getElementById("orginfo").options[selind].text;
+	 var cnt = 0; 
+	 var list=document.getElementById("users").getElementsByClassName("org_name");
+	 var listtr=document.getElementById("users").getElementsByClassName("userslist");
+	
+     for (var i=0; i<= list.length; i++)
+	 { 	
+		var x=list[i].innerHTML;
+		var y=listtr[i];
+		 if (x!=txt) {
+		 
+		y.style.display = 'none';
+ };
+ };	
+ };		
+	
+</script>
+
+
+<div id="addu">		
+	   {% if username %} <input type="image" src="{%static 'add2.png'%}" id="addbtn" value="Добавить пользователя" onclick="return showform();"> 
+	   <div id="labelds"><label id="dsclbl" for="">Добавить абонента</label></div>
+	   {% endif %}
+	   	<div id="form_container">
+			<div id="addzagmargin">
+		<h1 id="addzag">Заполните все поля</h1>
+		</div>
+		<form id="adduser" class="addusr"  method="post">
+						{% csrf_token %}
+						<div id="ullist">
+		<ul >
+									<li class="addlist" id="li_1" >
+		<label class="description" for="addorg">Имя </label>
+		<div>
+			<input id="element_1" name="addusername" required value='' class="addinput" type="text" maxlength="255" /> 
+		</div> 
+		</li>		<li  class="addlist"  id="li_2" >
+		<label class="description" for="addorg">Организация </label>
+		<div>
+			
+			<select id="element_2" name="addorg" class="addinput" type="text" maxlength="255">
+  <option>Точинвест</option>
+  <option>Точинвест цинк</option>
+  <option>Русская кожа</option>
+  <option>КожПромМебель</option>
+  <option>Туборус</option>
+  <option>Сафьян</option>
+  <option>Руно</option>
+</select>
+		</div> 
+		</li>		<li class="addlist"  id="li_3" >
+		<label class="description" for="addext" >Номер телефона </label>
+		<div>
+			<input required id="element_3" name="addext" class="addinput" type="text" maxlength="255" value=''/> 
+			 <script>
+     document.getElementById('element_3').onkeypress = function(e) {
+
+      e = e || event;
+
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+      var chr = getChar(e);
+
+      // с null надо осторожно в неравенствах, т.к. например null >= '0' => true!
+      // на всякий случай лучше вынести проверку chr == null отдельно
+      if (chr == null) return;
+
+      if (chr < '0' || chr > '9') {
+        return false;
+      }
+
+    }
+
+    function getChar(event) {
+      if (event.which == null) {
+        if (event.keyCode < 32) return null;
+        return String.fromCharCode(event.keyCode) // IE
+      }
+
+      if (event.which != 0 && event.charCode != 0) {
+        if (event.which < 32) return null;
+        return String.fromCharCode(event.which) // остальные
+      }
+
+      return null; // специальная клавиша
+    }
+  </script>
+		</div> 
+		</li>	
+			</ul>
+			</div>
+			<div id="adddivbtn">
+				<div id="adddivbtn2">
+			 <input id="saveForm" class="button_text" type="submit" name="submit" value="Ok" />
+			 <input id="cancel" type="button" onclick="return closeform();" value="Отмена" />
+			    </div>
+			</div>
+		</form>	
+	</div>
+	</div>
+	
+	<div id="updu">		
+	  	   	<div id="updform_container">
+			<div id="updzagmargin">
+		<h1 id="updzag">Заполните все поля</h1>
+		</div>
+		<form id="upduser" class="updusr"  method="post">
+		
+						{% csrf_token %}
+						
+						<div id="updullist">
+		<ul >
+									<li class="updlist" id="updli_1" >
+		<label class="upddescription" for="updorg">Имя </label>
+		<div>
+			<input id="updelement_1" name="updusername" value='' class="updinput" type="text" maxlength="255"/> 
+		</div> 
+		</li>		<li  class="updlist"  id="updli_2" >
+		<label class="upddescription" for="updorg">Организация </label>
+		<div>
+			<select id="updelement_2" name="updorg" class="updinput" type="text" maxlength="255"required /> 
+  <option value='Точинвест'>Точинвест</option>
+  <option value='Точинвест цинк'>Точинвест цинк</option>
+  <option value='Русская кожа'>Русская кожа</option>
+  <option value='КожПромМебель'>КожПромМебель</option>
+  <option value='Туборус'>Туборус</option>
+  <option value='Сафьян'>Сафьян</option>
+  <option value='Руно'>Руно</option>
+
+  </select>
+		</div> 
+		</li>		<li class="updlist"  id="updli_3" >
+		<label class="upddescription" for="updext">Номер телефона </label>
+		<div>
+			<input id="updelement_3" name="updext" class="updinput" type="text" maxlength="255" value='' required /> 
+			
+		</div> 
+		<li class="updlist"  id="updli_4" style="display: none;" >
+	<input id="updelement_4" name="updext2" class="updinput" type="text" maxlength="255" value=''required /> 
+	 <script>
+     document.getElementById('updelement_3').onkeypress = function(e) {
+
+      e = e || event;
+
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+      var chr = getChar(e);
+
+      // с null надо осторожно в неравенствах, т.к. например null >= '0' => true!
+      // на всякий случай лучше вынести проверку chr == null отдельно
+      if (chr == null) return;
+
+      if (chr < '0' || chr > '9') {
+        return false;
+      }
+
+    }
+
+    function getChar(event) {
+      if (event.which == null) {
+        if (event.keyCode < 32) return null;
+        return String.fromCharCode(event.keyCode) // IE
+      }
+
+      if (event.which != 0 && event.charCode != 0) {
+        if (event.which < 32) return null;
+        return String.fromCharCode(event.which) // остальные
+      }
+
+      return null; // специальная клавиша
+    }
+  </script>
+		</li>
+		</li>	
+			   
+	
+			</ul>
+			</div>
+			<div id="upddivbtn">
+				<div id="upddivbtn2">
+			 <input id="updsaveForm" class="updbutton_text" type="submit" name="submit" value="Ok" />
+			 <input id="updcancel" type="button" onclick="return closeupdform();" value="Отмена" />
+			    </div>
+			</div>
+		</form>	
+	</div>
+	</div>
+	
+        <center>
+			
+	<div id="findfiter" class="container-1">	
+		<span class="icon"><i class="fa fa-search"></i></span>
+		<th class="filtres"><input type="text" name="filter" value="" id="filter" placeholder="Поиск..." /></th>
+				</div>
+								
+
+<table id="users" border="1"  cellspacing="0" cellpadding="15" width="640" height="10" >
+	<caption>
+		
+	<thead>
+	  <tr>
+	 	<th class="headers" id='th1'>Имя </th> 
+		<th class="headers">Организация</th>
+		<th class="headers" id='th3'>Номер телефона</th>
+	{% if username %}	<th class="headers"id='th4'>Управление</th> {% endif %}
+	  </tr>
+
+	  </thead>
+	  
+	  <tbody>
+		  {% for User in userss %}
+		    <tr class='userslist' id={{ User.extension}} >
+			<td id= name_{{ User.extension}} class="edit name" text align="left" >{{ User.name}}</td>
+			<td id= org_{{ User.extension}} class="org_name" text align="center" >{{ User.org}}</td>
+			<td id= number_{{ User.extension}} class="edit extension" text align="center" >{{ User.extension}}</td>
+			{% if username %}
+			<td id="admintd"><form method="post">
+				{% csrf_token %}
+	<div id="delB" ><span class='dialog'>
+			   <span>Удаление</span>
+	      </span> 
+            <input type="hidden" name="ext" value ={{ User.extension }} >
+            <input type="image" name="picture" src="{% static 'del.png' %}" class="deluser" onclick="return confirmDelete();">
+ </div>
+            
+            </form>
+            <div id="editB"> <span class='dialog'>
+			   <span>Редактирование</span>
+	      </span> 				
+	<input  id={{ User.extension}}  type="image" name="picture2" src="{% static 'edit.png' %}" class="updbtn" onclick="return showupdform({{ User.extension }});"> 
+            </div>
+<script language="javascript">
+function showupdform(ext){
+    var name=document.getElementById("name_"+ext).innerHTML;
+    var org=document.getElementById("org_"+ext).innerHTML;
+    document.getElementById("updelement_1").value=name;
+    document.getElementById("updelement_2").value=org;
+    document.getElementById("updelement_3").value=ext;
+    document.getElementById("updelement_4").value=ext;
+    $('#updform_container').slideToggle(200);
+}	
+</script>
+         
+ 		 </td>             {% endif %}
+      		</tr>
+		  {% endfor %}
+		    </tbody>
+	</table>
+</center>
+<div class="row">
+	{% block login%}{% endblock %}
+
+	</div>
+</body>
+   
+
+</html>
+

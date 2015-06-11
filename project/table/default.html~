@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Список</title>
+</head>
+<body>
+<table border="1">
+	  <tr>
+	 	<td>id</td>
+		<td>name</td>
+	  </tr>
+		{% for user in userss %}
+	  	<tr >
+			<td>{{ user.name }}</td>
+			<td>{{ user.name }}</td>
+		</tr>
+		 {% endfor %}
+	</table>
+</body>
+</html>

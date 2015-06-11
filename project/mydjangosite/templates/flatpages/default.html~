@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="koi8-r">
+<title>Список</title>
+  <style>
+   tr:nth-child(2n) {
+    background: #ecfaff; /* Цвет фона */
+   } 
+   tr:nth-child(1) {
+    background: #666; /* Цвет фона */
+    color: #fff; /* Цвет текста */}
+ 
+  </style>
+</head>
+<body>
+<center>
+<input type="text" name="pole1">
+<table border="1" cellspacing="0" cellpadding="15" width="640" height="10">
+	  <tr>
+	 	<th>name</th>
+		<th>name</th>
+	  </tr>
+		  {% for Users in userss %} 
+		    <tr>
+			<td>{{ Users.voicemail|voicemail__contains='' }}</td>
+			<td>{{ Users.name }}</td>
+       		</tr>
+		    {% endfor %}
+	</table>
+</center>
+</body>
+</html>

@@ -1,0 +1,604 @@
+body {
+background: -moz-linear-gradient(top, #f0f9ff 0%, #e0f3ff 23%, #e0f3ff 24%, #a0dcff 100%); /* FF3.6+ */
+background-repeat:no-repeat;
+background-attachment:fixed;
+background-size: cover;
+margin:0;
+padding:0;
+
+}
+
+table {
+  background-color: white;
+  box-shadow: 0px 5px 15px 5px ;
+  border-radius: 10px 10px 0 0;
+  }
+
+thead{
+background: #505052; 
+border-radius: 10px 10px 0 0;
+font-family: 'Century Gothic', regular;
+color: white;
+}
+
+tbody td {
+  background-color: white;
+  font-family: 'Century Gothic', regular;
+
+}
+
+th.headers {
+
+    cursor: pointer;
+    text-decoration: underline;
+}
+th.headers:hover { color: white; }
+
+td.hovered {
+  background-color: lightblue;
+  color: black;
+  
+}
+
+
+label {
+color: black;
+}
+
+#th1{ 
+border-radius: 10px 0px 0 0;
+}
+#th3{ 
+border-radius: 0px 0px 0 0;
+}
+
+#th4{ 
+border-radius: 0px 10px 0 0;
+}
+
+div.top-bar {
+border: 0;
+ overflow: hidden;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
+  position: relative;
+  
+  margin-bottom: 0;
+
+background: #505052; /* FF3.6+ */
+
+
+
+}
+  
+ul.right {
+  float: right ; 
+ }
+
+/*******************
+FONTS
+*******************/
+
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+/*******************
+SELECTION STYLING
+*******************/
+
+::-moz-selection {
+	color: #fff;
+	background: #f676b2; /* Firefox */
+}
+
+/*******************
+BODY STYLING
+*******************/
+
+
+#wrapper {
+	/* Center wrapper perfectly */
+    min-width: 100%;
+    min-height: 100%;
+	position: absolute;
+	margin-top: -200px;
+	background: linear-gradient(-45deg, #feffff 0%, #d2ebf9 100%);
+	background-attachment:fixed;
+}
+
+
+
+/*******************
+LOGIN FORM
+*******************/
+
+.login-form {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 100px;
+	position: relative;
+	z-index:5;
+	
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/*******************
+HEADER
+*******************/
+
+.login-form .header {
+	padding: 40px 30px 30px 30px;
+}
+
+.login-form .header h1 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 28px;
+	line-height:34px;
+	color: #414848;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	margin-bottom: 10px;
+	margin-left: 10%; 
+}
+
+.login-form .header span {
+	font-size: 11px;
+	line-height: 16px;
+	color: #678889;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	float: center;
+}
+
+/*******************
+CONTENT
+*******************/
+
+.login-form .content {
+	padding: 0 30px 25px 30px;
+	margin-left: 10%; 
+}
+
+/* Input field */
+.login-form .content .input {
+	width: 188px;
+	padding: 15px 25px;
+	
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+.login-form .content .input:hover {
+	background: #dfe9ec;
+	color: #414848;
+}
+
+.login-form .content .input:focus {
+	background: #dfe9ec;
+	color: #414848;
+	
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+
+/*******************
+FOOTER
+*******************/
+
+.login-form .footer {
+	padding: 25px 30px 40px 30px;
+	overflow: auto;
+	
+	background: #d4dedf;
+	border-top: 1px solid #fff;
+	
+	box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+	-webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.15);
+}
+
+/* Login button */
+.login-form .footer .button {
+	float:center;
+	padding: 11px 25px;
+	margin-left: 23%; 
+	
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+	
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
+.login-form .footer .button:hover {
+	background: #3f9db8;
+	border: 1px solid rgba(256,256,256,0.75);
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.login-form .footer .button:focus {
+	position: relative;
+	bottom: -1px;
+	
+	background: #56c2e1;
+	
+	box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+
+/* Register button */
+.login-form .footer .register {
+	display: block;
+	float: right;
+	padding: 10px 5px 10px 0;
+	margin-right: 20px;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	font-family: 'Bree Serif', serif;
+	font-weight: 300;
+	font-size: 18px;
+	color: #414848;
+	text-shadow: 0px 1px 0 rgba(256,256,256,0.5);
+}
+
+.login-form .footer .register:hover {
+	color: #3f9db8;
+}
+
+.login-form .footer .register:focus {
+	position: relative;
+	bottom: -1px;
+}
+
+#zag
+{
+float: Center;
+}
+
+
+.top-bar-section {
+  left: 0;
+  position: relative;
+  width: auto;
+  transition: right 300ms ease-out; }
+  .top-bar-section ul {
+    padding: 0;
+    width: %;
+    height: auto;
+    display: block;
+    font-size: 16px;
+    margin: 0; }
+   .top-bar-section ul li > a {
+      display: block;
+      width: 100%;
+      color: #FFFFFF;
+      padding: 12px 0 12px 0;
+      padding-left: 0.9375rem;
+      font-family: "Century Gothic";
+      font-size: 16;
+      font-weight: normal;
+      text-transform: none; }
+
+
+       li {
+    list-style-type: none; /* Убираем маркеры */
+     border-left: 0px solid #0C0C0C;
+     margin-right: 10%
+   }
+#layer{
+position: relative;
+top: -40px;
+margin-left: 3%;
+}   
+#layerL
+{
+font-family: 'Century Gothic', regular;
+font-size: 150%;
+color: white; 
+}
+
+a.scrollup{
+outline:none;
+width:40px;
+height:40px;
+opacity:0.3;
+position:fixed;
+bottom:50px;
+left:100px;
+display:none;
+text-indent:-9999px;
+background: url('icon_top.png') no-repeat;
+}
+
+th.filtres{
+border-top: 1px;
+
+}
+
+th.headers{
+border-bottom: 1px;
+
+}
+
+
+#form_container{
+        display:none;
+background-color: #f3f3f3;
+width: 200px;
+height: 210px;
+border-radius: 8px 8px 8px 8px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+    
+#addu{
+margin-left: 77%;
+margin-top: 10px;
+position: absolute;
+
+}
+#addzag{
+margin-top: 1%;
+font-family: 'Century Gothic', regular;
+font-size: 12px;
+}
+
+#dsclbl{
+font-family: 'Century Gothic', regular;
+}
+
+#labelds{
+margin-top: 2px;
+}
+
+.description{
+font-size: 12px;
+
+}
+.addinput{
+width: 190;}
+
+.addlist{
+margin-left: -36px;
+}
+#ullist{
+margin-left:1px
+}
+#adddivbtn{
+background: #d3ddde;
+height: 30px;
+border-radius: 0 0 8px 8px;
+}
+#adddivbtn2{
+margin-left: 37px;
+margin-top: 15px
+
+}
+#addzagmargin{
+margin-left: 35px
+}
+
+#addbtn{
+outline: none;
+}
+
+
+#updform_container{
+ display:none;
+background-color: #f3f3f3;
+width: 200px;
+height: 210px;
+border-radius: 8px 8px 8px 8px;
+box-shadow: 0 0 11px 3px rgba(0, 0, 0, 1);
+	-moz-box-shadow:0 0 11px 3px rgba(0, 0, 0, 1);
+	-webkit-box-shadow: 0 0 11px 3px rgba(0, 0, 0, 1);
+
+}
+    
+#updu{
+
+position: fixed; 
+z-index:5;
+margin-top: 12%;
+margin-left: 40%;
+}
+#updzag{
+margin-top: 1%;
+font-family: 'Century Gothic', regular;
+font-size: 12px;
+}
+
+.upddescription{
+font-size: 12px;
+
+}
+.updinput{
+width: 190;}
+
+.updlist{
+margin-left: -36px;
+}
+#updullist{
+margin-left:1px
+}
+#upddivbtn{
+background: #d3ddde;
+height: 30px;
+border-radius: 0 0 8px 8px;
+}
+#upddivbtn2{
+margin-left: 37px;
+margin-top: 15px
+
+}
+#updzagmargin{
+margin-left: 35px
+}
+
+#updli_4{
+display:none;
+}
+
+#admintd{
+
+width: 30px;
+}
+#delb{
+float:left;
+width:30px;
+height: 30px;
+}
+
+#editb{
+margin-left:70px;
+margin-top:-16px;
+}
+
+span.dialog {
+  background: transparent url(sprite_dialogs.png) no-repeat scroll 0 0;
+  font: 15px/2 normal Helvetica,Arial,Verdana,sans-serif;
+  display: none;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: left;
+  white-space: nowrap;
+  width: 220px;
+  z-index: 100;
+}
+
+span.dialog span {
+  display: inline-block;
+  padding: 15px 0 0 12px;
+}
+
+span.dialog.left {
+  background-position: 100% 0;
+  color: red;
+}
+
+span.dialog.left span {
+  padding: 15px 0 0 17px;
+}
+
+span.dialog.above {
+  background-position: 0 100%;
+}
+
+span.dialog.above span {
+  padding: 13px 0 0 12px;
+}
+
+span.dialog.above.left {
+  background-position: 100% 100%;
+}
+
+span.dialog.above.left span {
+  padding: 13px 0 0 17px;
+}
+#findfiter{ position: absolute;
+margin-left:76%;
+}
+.container-1{
+  width: 200px;
+  height: 30px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  margin-top: -64px;  
+margin-left: -5px;
+       
+}
+.container-1 .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: -190px;
+  margin-top: -8px;
+  z-index: 1;
+  color: #4f5b66;
+}
+.container-1 input#filter{
+  width: 200px;
+  height: 30px;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  color: #63717f;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.container-1 input#filter::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.container-1 input#filter:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;  
+}
+
+.container-1 input#filter::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;  
+}
+
+.container-1 input#filter:-ms-input-placeholder {  
+   color: #65737e;  
+}
+
+
+.enter{
+  font-size: 10pt;
+}
+
+
+#allinf{
+font-family: "Century Gothic";
+position: fixed;
+box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+background-color: white;
+width: 215px;
+height: 200px;
+margin-left: 5%;
+border-radius: 5px 5px 5px 5px;
+}
+
+.inf{
+width: 214px;
+}

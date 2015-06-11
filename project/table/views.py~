@@ -1,0 +1,10 @@
+from django.shortcuts import render_to_response
+from models import Users
+# Create your views here.
+
+#def view_testtest(request):
+    #testtest = tableTest.objects.all()
+def view_userss(request):
+    userss = Users.objects.all()
+  #  return render_to_response('/var/www/html/mydjangosite/mydjangosite/templates/flatpages/default.html',{'testtest': testtest})
+    return render_to_response('/var/www/html/mydjangosite/mydjangosite/templates/flatpages/default.html',{'userss': userss})

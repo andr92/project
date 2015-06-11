@@ -1,0 +1,29 @@
+{% extends 'default.html' %}
+{% block login %}
+<div id="wrapper">  
+<form name="login-form" class="login-form" action="/auth/login/" method="post">
+{% csrf_token %}
+
+
+    <div class="header">
+		<h1>Авторизация</h1>
+		<span>Введите данные администратора для управления телефонной книгой. </span>
+    </div>
+
+    <div class="content">
+		<input id="username" name="username" type="text" class="input username" value="Login" onfocus="this.value=''" />
+		<input id="password" name="password" type="password" class="input password" value="Password" onfocus="this.value=''" />
+
+{% if login_error %}
+<label class="error">{{login_error}}</label>
+{% endif %}
+
+    </div>
+
+    <div class="footer">
+		<input type="submit" name="submit" value="ВОЙТИ" class="button" />
+    </div>
+</form>
+</div>
+
+{% endblock %}
